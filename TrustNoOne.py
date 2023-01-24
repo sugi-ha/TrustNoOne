@@ -103,17 +103,6 @@ class App:
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
 
-
-        #ｚを押したらポーズ
-        #if pyxel.btnp(pyxel.KEY_Z):
-            #if self.pose==0:
-                #self.pose=int(pose_add)
-            #else:
-                #self.pose=0
-
-        if pyxel.btnp(pyxel.KEY_D):
-            self.variable_define()
-
         if self.pose==0:
         #経過時間更新
             self.update_time()
@@ -126,13 +115,8 @@ class App:
             for i, v in enumerate(self.fruit):
                 self.fruit[i] = self.update_fruit(*v)
 
-                if pyxel.btnp(pyxel.KEY_D):
-                    self.variable_define()
-
-
-
     def update_start(self):
-        pyxel.mouse(True)
+        pyxel.mouse(False)
 
         #スペースを押してメイン画面に遷移
         if pyxel.btnp(pyxel.KEY_SPACE):
@@ -156,9 +140,6 @@ class App:
         if pyxel.btnp(pyxel.KEY_SPACE):
             self.pose = 1
             self.gamemode = GAMEMODE.start
-
-    def variable_define(self):
-        self.pose=1
 
     def update_time(self):
         #経過時間カウント
