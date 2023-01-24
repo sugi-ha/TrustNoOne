@@ -116,7 +116,7 @@ class App:
                 self.fruit[i] = self.update_fruit(*v)
 
     def update_start(self):
-        pyxel.mouse(False)
+        pyxel.mouse(True)
 
         #スペースを押してメイン画面に遷移
         if pyxel.btnp(pyxel.KEY_SPACE):
@@ -156,6 +156,14 @@ class App:
         if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.GAMEPAD1_AXIS_RIGHTX):
             # min(A, B)、AとBの小さい方を採用。画面外右側にはいかない
             self.player_x = min(self.player_x + 2, pyxel.width - 16)
+
+        # 操作pad
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
+            if 23 < pyxel.mouse_x < 57 and 88 < pyxel.mouse_y < 112:
+                self.player_x = max(self.player_x - 2, 0)
+            elif 103 < pyxel.mouse_x < 132 and 88 < pyxel.mouse_y < 112:
+                self.player_x = min(self.player_x + 2, pyxel.width - 16)
+
 
         # 速度の分だけy方向プレイヤーを動かす
         self.player_y += self.player_vy
@@ -327,6 +335,10 @@ class App:
             16,
             12,
         )
+
+        # 操作Pad
+        pyxel.tri(25, 100, 55, 90, 55, 110, 10)
+        pyxel.tri(105, 90, 135, 100, 105, 110, 10)
 
         # draw time
         s = "TIME {:.3f}".format(self.time)
