@@ -137,9 +137,20 @@ class App:
 
     def update_result(self):
         pyxel.mouse(True)
+
+        # スペースを押してメイン画面に遷移
         if pyxel.btnp(pyxel.KEY_SPACE):
             self.pose = 1
             self.gamemode = GAMEMODE.start
+
+        # Retryボタンを押してメイン画面に遷移
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT) and (104 <= pyxel.mouse_x <= 119) and (104 <= pyxel.mouse_y <= 119):
+            self.pose = 1
+            self.gamemode = GAMEMODE.start
+
+        # Quitボタンを押して終了
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT) and (128 <= pyxel.mouse_x <= 143) and (104 <= pyxel.mouse_y <= 119):
+            pyxel.quit()
 
     def update_time(self):
         #経過時間カウント
@@ -148,17 +159,17 @@ class App:
 
     def update_player(self):
         # 左を押したら
-        if pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.GAMEPAD1_AXIS_LEFTX):
+        if pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.KEY_A) or  pyxel.btn(pyxel.GAMEPAD1_AXIS_LEFTX):
             # max(A, B)、AとBの大きい方を採用。このとき負にならないから画面外左側にはいかない
             self.player_x = max(self.player_x - 2, 0)
 
         # 右を押したら
-        if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.GAMEPAD1_AXIS_RIGHTX):
+        if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D) or pyxel.btn(pyxel.GAMEPAD1_AXIS_RIGHTX):
             # min(A, B)、AとBの小さい方を採用。画面外右側にはいかない
             self.player_x = min(self.player_x + 2, pyxel.width - 16)
 
         # 操作pad
-        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
+        if pyxel.btn(pyxel.MOUSE_BUTTON_LEFT):
             if 23 < pyxel.mouse_x < 57 and 88 < pyxel.mouse_y < 112:
                 self.player_x = max(self.player_x - 2, 0)
             elif 103 < pyxel.mouse_x < 132 and 88 < pyxel.mouse_y < 112:
@@ -283,6 +294,7 @@ class App:
         # draw share
         pyxel.text(14, 94, "share score:", 10)
 
+        # Score共有
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT) and (64 <= pyxel.mouse_x <= 79) and (88 <= pyxel.mouse_y <= 103):
             webbrowser.open("https://twitter.com/ChiikawaFanboy")
 
