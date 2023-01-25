@@ -170,9 +170,9 @@ class App:
 
         # 操作pad
         if pyxel.btn(pyxel.MOUSE_BUTTON_LEFT):
-            if 23 < pyxel.mouse_x < 57 and 88 < pyxel.mouse_y < 112:
+            if 20 < pyxel.mouse_x < 57 and 85 < pyxel.mouse_y < 115:
                 self.player_x = max(self.player_x - 2, 0)
-            elif 103 < pyxel.mouse_x < 132 and 88 < pyxel.mouse_y < 112:
+            elif 103 < pyxel.mouse_x < 135 and 85 < pyxel.mouse_y < 115:
                 self.player_x = min(self.player_x + 2, pyxel.width - 16)
 
 
