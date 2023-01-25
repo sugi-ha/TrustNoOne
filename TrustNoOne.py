@@ -170,9 +170,9 @@ class App:
 
         # 操作pad
         if pyxel.btn(pyxel.MOUSE_BUTTON_LEFT):
-            if 20 < pyxel.mouse_x < 57 and 85 < pyxel.mouse_y < 115:
+            if 23 < pyxel.mouse_x < 57 and 88 < pyxel.mouse_y < 112:
                 self.player_x = max(self.player_x - 2, 0)
-            elif 103 < pyxel.mouse_x < 135 and 85 < pyxel.mouse_y < 115:
+            elif 103 < pyxel.mouse_x < 137 and 88 < pyxel.mouse_y < 112:
                 self.player_x = min(self.player_x + 2, pyxel.width - 16)
 
 
@@ -351,8 +351,10 @@ class App:
         )
 
         # 操作Pad
-        pyxel.tri(25, 100, 55, 90, 55, 110, 10)
-        pyxel.tri(105, 90, 135, 100, 105, 110, 10)
+        pyxel.rect(23,88,34,24,7)
+        pyxel.rect(103,88,34,24,7)
+        pyxel.tri(25, 100, 53, 92, 53, 108, 10)
+        pyxel.tri(107, 92, 135, 100, 107, 108, 10)
 
         # draw time
         s = "TIME {:.3f}".format(self.time)
