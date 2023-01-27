@@ -296,7 +296,7 @@ class App:
 
         # Score共有
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT) and (64 <= pyxel.mouse_x <= 79) and (88 <= pyxel.mouse_y <= 103):
-            template_link = "https://twitter.com/intent/tweet?text=TrustNoOne%0A%E3%80%90Score%E3%80%91{}%0A%E3%80%90Time%E3%80%91{:.1f}%0A%0A%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%92%E9%81%8A%E3%81%B6%E2%86%93%0Ahttps%3A%2F%2Fsugi-ha.github.io%2FTrustNoOne%2F%0A%0Aby%20%40ChiikawaFanboy"
+            template_link = "https://twitter.com/intent/tweet?text=Trust%20no%20one%0A%E3%80%90Score%E3%80%91{}%0A%E3%80%90Time%E3%80%91{:.1f}%0A%0A%E3%82%B2%E3%83%BC%E3%83%A0%E3%81%A7%E9%81%8A%E3%81%B6%E2%86%93%0Ahttps%3A%2F%2Fsugi-ha.github.io%2FTrustNoOne%2F%0A%0Acreated%20by%20%23python%20%23pyxel%20"
             form_link = template_link.format(self.result_score,self.result_time)
             webbrowser.open(form_link)
 
