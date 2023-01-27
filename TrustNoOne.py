@@ -172,7 +172,7 @@ class App:
         if pyxel.btn(pyxel.MOUSE_BUTTON_LEFT):
             if 23 < pyxel.mouse_x < 57 and 88 < pyxel.mouse_y < 112:
                 self.player_x = max(self.player_x - 2, 0)
-            elif 103 < pyxel.mouse_x < 137 and 88 < pyxel.mouse_y < 112:
+            if 103 < pyxel.mouse_x < 137 and 88 < pyxel.mouse_y < 112:
                 self.player_x = min(self.player_x + 2, pyxel.width - 16)
 
 
